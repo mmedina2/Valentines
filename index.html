@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine</title>
+    <style>
+        body {
+            background-color: #ffccd5;
+            background-image: url("your-heart-background-image-url.jpg"); /* Update this with the actual URL of your heart background image */
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            color: #fff;
+            font-size: 2.5em; /* Increased font size */
+            text-align: center;
+            margin: 20px 0; /* Add some spacing */
+        }
+        button {
+            background-color: #ff69b4;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            padding: 20px 40px; /* Increased button size */
+            font-size: 1.5em; /* Increased font size */
+            cursor: pointer;
+            display: block; /* Necessary for centering */
+            margin: 20px auto; /* Increased spacing and ensure centering */
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ff1493;
+        }
+    </style>
+        <script type="text/javascript">
+            function yesClick() {
+                window.location.href = 'yes-response.html'; // Redirects to the 'Yes' response page
+            }
+    
+            function noClick() {
+                // Get a random position within the window's dimensions
+                var newX = Math.floor(Math.random() * window.innerWidth);
+                var newY = Math.floor(Math.random() * window.innerHeight);
+                // Ensure the button doesn't go completely out of view
+                var buttonWidth = this.offsetWidth;
+                var buttonHeight = this.offsetHeight;
+                if (newX + buttonWidth > window.innerWidth) {
+                    newX = window.innerWidth - buttonWidth;
+                }
+                if (newY + buttonHeight > window.innerHeight) {
+                    newY = window.innerHeight - buttonHeight;
+                }
+                // Apply the new position to the button
+                this.style.position = 'absolute';
+                this.style.left = newX + 'px';
+                this.style.top = newY + 'px';
+            }
+        </script>
+</head>
+<body>
+    <div>
+        <h2>Will you be my Valentine, Paola?</h2>
+        <button onclick="yesClick()">Yes</button>
+        <button onclick="noClick.call(this)">No</button> <!-- Modified to use call to maintain this context -->
+        <h2>Love, Marcos :)</h2>
+    </div>
+    
+</body>
+</html>
